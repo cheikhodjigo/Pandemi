@@ -2,7 +2,7 @@
 
 all: bin/generator
 
-bin/generator:
+bin/generator: src/generator.c
 	mkdir -p bin
 	gcc -o bin/generator src/generator.c
 

@@ -19,15 +19,23 @@
  */
 
 #include <time.h>
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 
+// Constants
 static const char DEAD = '.';
 static const char HEALTHY = 'H';
 static const char INFECTED = 'X';
 
+// Program status
+enum STATUS {
+    GENERATOR_OK               = 0,
+    GENERATOR_ARGC_ERROR       = 1,
+    GENERATOR_ARGV_NONPOSITIVE = 2,
+};
+
 /*
- * Prints the program usage in steout.
+ * Prints the program usage on stdout.
  */
 void print_usage()
 {
@@ -42,29 +50,29 @@ void print_usage()
  * * 20% of INFECTED
  * * 60% of DEAD
  *
- * @return: the cell char
+ * @return  the cell char
  */
 char gen_cell()
 {
 	int r = rand() % 100;
-	if(r > 80) {
+	if (r > 80) {
 		return HEALTHY;
-	} else if(r > 60) {
+	} else if (r > 60) {
 		return INFECTED;
 	}
 	return DEAD;
 }
 
 /*
- * Generates and prints a random grid of `height` * `width` in stdout.
+ * Prints a random grid of `height` rows and `width` columns on stdout.
  *
- * @param height: number of lines in the grid
- * @param width: number of columns in the grid
+ * @param height  number of lines in the grid
+ * @param width   number of columns in the grid
  */
 void gen_grid(int height, int width)
 {
-	for(int i = 0; i < height; i++) {
-		for(int j = 0; j < width; j++) {
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
 			char cell = gen_cell();
 			printf("%c", cell);
 		}
@@ -77,22 +85,22 @@ int main(int argc, char* argv[])
 	int height, width;
 	time_t t;
 
-	if(argc != 3) {
+	if (argc != 3) {
 		fprintf(stderr, "Error: two arguments respectively the lines and columns of the grid.\n");
 		print_usage();
-		exit(1);
+		exit(GENERATOR_ARGC_ERROR);
 	}
 
 	height = atoi(argv[1]);
 	width = atoi(argv[2]);
-	if(height < 0 || width < 0) {
+	if (height < 0 || width < 0) {
 		fprintf(stderr, "Error: the number of lines and columns must be positive.\n");
 		print_usage();
-		exit(1);
+		exit(GENERATOR_ARGV_NONPOSITIVE);
 	}
 
 	srand((unsigned) time(&t));
 	gen_grid(height, width);
 
-	return 0;
+	return GENERATOR_OK;
 }
