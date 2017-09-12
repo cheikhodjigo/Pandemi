@@ -28,7 +28,7 @@ En tout temps, il est possible de tester le programme en lançant la commande
 ou à l'aide de la cible `tests` du Makefile
 
 ```sh
-make tests
+make check
 ```
 
 **Remarque:** Vous devez d'abord implémenter la cible `bin/pandemic` dans le
