@@ -72,7 +72,7 @@ H..XH.H...
 
 ## Références
 
-Indiquer ici les références que vous avez utilisées pour compléter le projet.
+Indiquez ici les références que vous avez utilisé pour compléter le projet.
 
 ## État du projet
 
@@ -92,4 +92,3 @@ crochets. Si une tâche n'a pas été complétée, expliquez pourquoi.
 * [ ] La cible `bin/pandemic` a été ajoutée dans le Makefile.
 * [ ] Aucun test exécuté avec le script `tests.sh` n'échoue.
 * [ ] Les sections incomplètes du fichier `README.md` ont été complétées.
-
