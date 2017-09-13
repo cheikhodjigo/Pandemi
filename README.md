@@ -25,7 +25,7 @@ En tout temps, il est possible de tester le programme en lançant la commande
 ./tests.sh
 ```
 
-ou à l'aide de la cible `tests` du Makefile
+ou à l'aide de la cible `check` du Makefile
 
 ```sh
 make check
@@ -90,5 +90,5 @@ crochets. Si une tâche n'a pas été complétée, expliquez pourquoi.
 * [ ] Le fichier `.gitignore` a été mis à jour.
 * [ ] Le fichier `pandemi.c` a été implémenté.
 * [ ] La cible `bin/pandemic` a été ajoutée dans le Makefile.
-* [ ] Aucun test exécuté avec le script `tests.sh` n'échoue.
+* [ ] Aucun test exécuté avec la commande `make check` n'échoue.
 * [ ] Les sections incomplètes du fichier `README.md` ont été complétées.
