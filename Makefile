@@ -4,7 +4,7 @@ all: bin/generator
 
 bin/generator: src/generator.c
 	mkdir -p bin
-	gcc -o bin/generator src/generator.c
+	gcc -std=c11 -o bin/generator src/generator.c
 
 check:
 	./tests.sh
