@@ -1,4 +1,8 @@
 .PHONY: all tests clean
+FILENAME= bin/pandemi
+$(FILENAME): src/pandemi.o
+	mkdir -p bin
+	gcc -o $(FILENAME) src/pandemi.c
 
 all: bin/generator
 
