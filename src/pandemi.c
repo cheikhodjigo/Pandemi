@@ -191,16 +191,6 @@ void populatedCell(char copie[LINES][COLUMN],int i,int j){
             }else if (copie[checkI][checkJ] == 'X'){
                 infected++;
             }
-            /*
-            if(infected == 2 || healthy == 2 || infected == 3 || healthy == 3){
-                break;
-            }else if(copie[i][j] == 'H'&& a == 7){
-                if(infected > healthy){
-                    jeu[i][j] = 'X';
-                }
-            }else if(a == 7 && ((infected+healthy)< 2 || (infected+healthy) > 3)){
-                jeu[i][j] = '.';
-            }*/
             if((infected+healthy) == 2 || (infected + healthy) == 3){
                 if(copie[i][j] == 'H'){
                     if(infected > healthy)
