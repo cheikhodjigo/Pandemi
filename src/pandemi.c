@@ -8,7 +8,7 @@ enum Dimension{
 
 void initialisateMap();//char jeu[LINES][COLUMN]);
 void printMap();
-void evolutionOfVirus(int nbJours);
+void evolutionOfVirus();
 void emptyCell(char copie[LINES][COLUMN],int i,int j);
 void populatedCell(char copie[LINES][COLUMN],int i,int j);
 char jeu[LINES][COLUMN];//The representation of the game
@@ -28,10 +28,12 @@ int main(int argc, char * argv[]){
             printf("Erreur: Le nombre de jours à simuler doit être entre 0 et 100.\n");
         } 
         initialisateMap();
-        for(a = 0;a < argm;a++){
-            evolutionOfVirus(0);
+        for(a = 0;a <= argm;a++){
+            //evolutionOfVirus();
             printf("Jour %d \n",a);
-            printMap();   
+            printMap();
+            if(a!=argm)
+                evolutionOfVirus();   
         }
     }
     return 0;
@@ -41,7 +43,7 @@ int main(int argc, char * argv[]){
 *This method iniatialisate the matrix that represents the map
 *
 */
-void initialisateMap(){//char jeu[LINES][COLUMN]){
+void initialisateMap(){
     int i =0;
     int j =0;
     char c;
@@ -57,7 +59,7 @@ void initialisateMap(){//char jeu[LINES][COLUMN]){
             jeu[i][j] = c;
         }
     }
-    printf("\n");
+    //printf("\n");
 }
 
 
@@ -191,6 +193,7 @@ void populatedCell(char copie[LINES][COLUMN],int i,int j){
             }else if (copie[checkI][checkJ] == 'X'){
                 infected++;
             }
+            /*
             if((infected+healthy) == 2 || (infected + healthy) == 3){
                 if(copie[i][j] == 'H'){
                     if(infected > healthy)
@@ -199,8 +202,17 @@ void populatedCell(char copie[LINES][COLUMN],int i,int j){
                 break;
             }else if (a == 7 && ((infected+healthy)< 2 || (infected+healthy) > 3)){
                 jeu[i][j] = '.';
-            }
+            }*/
 
        }
     }
+    if((infected+healthy) == 2 || (infected + healthy) == 3){
+        if(copie[i][j] == 'H'){
+            if(infected > healthy)
+            jeu[i][j] = 'X';
+        }
+    }else if (((infected+healthy)< 2) ||((infected+healthy) > 3)){
+        jeu[i][j] = '.';
+    }
+
 }
