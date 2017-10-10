@@ -14,11 +14,18 @@ Nom: DJIGO
 
 ## Fonctionnement
 
-Expliquez d'abord en mots comment faire fonctionner le projet (imaginez que la
-personne qui l'utilisera ne connaît rien du projet et souhaite seulement
-l'exécuter). En particulier, indiquez les commandes qui doivent être entrées
-pour la compilation et l'exécution.
-
+Pour executer le programme on devra tout d'abord entrer la commande 'make' au 
+terminal. Cette commande servira a compiler le programme. On pourra ensuite 
+rentrer la commande 'bin/pandemic'.Cela aura pour effet de lancer le programme.
+Cette commande peut aussi etre suivi du nombre de jours a simuler(il doit etre
+compris entre 0 et 100). C'est le seul argument qui sera accepter. Ceci fait,
+vous devez entrer sur stdin la carte de la population. Cette carte doit etre
+composer de 40 * 20 caractere. Ces caracteres peuvent entrer de facon continue
+ou de facon discontinue. La maniere discontinue exige que l'on rentre 40 
+caracteres sur 20 differentes lignes. Les seules caracteres admis sont les suivants:
+'.', 'H' et 'X'. Tout autre caracteres entres generera une erreur. Une carte trop 
+courte generera aussi une erreur. 
+    
 ## Tests
 
 En tout temps, il est possible de tester le programme en lançant la commande
