@@ -18,7 +18,7 @@ int main(int argc, char * argv[]){
     bool haveNoErr = true;//variable that will check if there are errors in the map
     int argm;//The number of days the user entered
     if(argc > 2){
-        printf("Erreur: Attendu un seul argument: le nombre de jours à simuler.");
+        fprintf(stdout,"Erreur: Attendu un seul argument: le nombre de jours à simuler.");
     }else if(argc ==1){
         haveNoErr = initialisateMap();
         if(haveNoErr){    
@@ -28,7 +28,7 @@ int main(int argc, char * argv[]){
     }else if(argc == 2){
         int argm = atoi(argv[1]);
         if(argm < 0 || argm > 100){
-            printf("Erreur: Le nombre de jours à simuler doit être entre 0 et 100.\n");
+            fprintf(stdout,"Erreur: Le nombre de jours à simuler doit être entre 0 et 100.\n");
         }else{ 
             haveNoErr=initialisateMap();//checking if there are errors or no
             if(haveNoErr){
@@ -56,13 +56,13 @@ bool initialisateMap(){
         for(j = 0;j<COLUMN;j++){
             c = getchar();
             if(c == '\n' && j != 0){
-                printf("Erreur: Caractère `EOF` inattendu, attendu `H`, `X` ou `.`.\n");
+                fprintf(stdout,"Erreur: Caractère `EOF` inattendu, attendu `H`, `X` ou `.`.\n");
                 return false;
             }
             if(c == '\n')
                 c=getchar();
             if(c!='.' && c != 'H' && c!='X'){
-                printf("Erreur: Caractère `%c` inattendu, attendu `.`, `H` ou `X`.\n",c);
+                fprintf(stdout,"Erreur: Caractère `%c` inattendu, attendu `.`, `H` ou `X`.\n",c);
                 return false;
             }
             jeu[i][j] = c;
