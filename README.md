@@ -9,7 +9,8 @@ l'universite du Quebec a Montreal.
 
 ## Auteur
 
-Indiquez ici votre prénom, nom et code permanent.
+Prenom : Cheikh Omar
+Nom: DJIGO
 
 ## Fonctionnement
 
