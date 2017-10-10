@@ -22,7 +22,7 @@ int main(int argc, char * argv[]){
     }else if(argc ==1){
         haveNoErr = initialisateMap();
         if(haveNoErr){    
-            printf("Jour 0\n");
+            fprintf(stdout,"Jour 0\n");
             printMap();
         }
     }else if(argc == 2){
@@ -33,7 +33,7 @@ int main(int argc, char * argv[]){
             haveNoErr=initialisateMap();
             if(haveNoErr){
                 for(a = 0;a <= argm;a++){
-                    printf("Jour %d \n",a);
+                    fprintf(stdout,"Jour %d\n",a);
                     printMap();
                     if(a!=argm)
                         evolutionOfVirus();   
@@ -78,7 +78,7 @@ void printMap(){
     int j;
     for(i = 0;i<LINES;i++){
         for(j=0;j<COLUMN;j++){
-                printf("%c",jeu[i][j]);
+            fprintf(stdout,"%c",jeu[i][j]);
         }
         printf("\n");
     } 
