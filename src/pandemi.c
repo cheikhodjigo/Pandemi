@@ -62,7 +62,7 @@ bool initialisateMap(){
             if(c == '\n')
                 c=getchar();
             if(c!='.' && c != 'H' && c!='X' && c != ' '){
-                fprintf(stdout,"Erreur: Caractère `%c` inattendu, attendu `.`, `H` ou `X`.\n",c);
+                fprintf(stdout,"Erreur: Caractère `%c` inattendu, attendu `H`, `X` ou `.`.\n",c);
                 return false;
             }
             while(c == ' ' && c != '\n'){
