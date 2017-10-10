@@ -3,11 +3,12 @@
 #include <stdlib.h>
 
 enum Dimension{
-    LINES = 20,COLUMN = 40
+    LINES = 2,COLUMN = 4
 };
 
-void initialisateMap();//char jeu[LINES][COLUMN]);
+bool initialisateMap();//char jeu[LINES][COLUMN]);
 void printMap();
+//bool haveErr();
 void evolutionOfVirus();
 void emptyCell(char copie[LINES][COLUMN],int i,int j);
 void populatedCell(char copie[LINES][COLUMN],int i,int j);
@@ -15,26 +16,32 @@ char jeu[LINES][COLUMN];//The representation of the game
 
 int main(int argc, char * argv[]){
     int a;//Counter for the loop if argc == 2
+    bool haveNoErr = true;
     int argm;//The number of days the user entered
     if(argc > 2){
         printf("Erreur: Attendu un seul argument: le nombre de jours à simuler.");
-    }else if(argc == 1){
-        initialisateMap();
-        printf("Jour 0\n");
-        printMap();
-    }else if(argc == 2){
-        int argm = atoi(argv[1]);
-        if(argm < 0 && argm > 100){
-            printf("Erreur: Le nombre de jours à simuler doit être entre 0 et 100.\n");
-        } 
-        initialisateMap();
-        for(a = 0;a <= argm;a++){
-            //evolutionOfVirus();
-            printf("Jour %d \n",a);
+    }else if(argc ==1){
+        haveNoErr = initialisateMap();
+        if(haveNoErr){    
+            printf("Jour 0\n");
             printMap();
-            if(a!=argm)
-                evolutionOfVirus();   
+        
         }
+    }else if(argc == 2 && haveNoErr){
+        int argm = atoi(argv[1]);
+        if(argm < 0 || argm > 100){
+            printf("Erreur: Le nombre de jours à simuler doit être entre 0 et 100.\n");
+        }else{ 
+            haveNoErr=initialisateMap();
+            if(haveNoErr){
+                for(a = 0;a <= argm;a++){
+                    printf("Jour %d \n",a);
+                    printMap();
+                    if(a!=argm)
+                        evolutionOfVirus();   
+                }
+            }
+        }    
     }
     return 0;
 }
@@ -43,7 +50,7 @@ int main(int argc, char * argv[]){
 *This method iniatialisate the matrix that represents the map
 *
 */
-void initialisateMap(){
+bool initialisateMap(){
     int i =0;
     int j =0;
     char c;
@@ -51,18 +58,37 @@ void initialisateMap(){
         for(j = 0;j<COLUMN;j++){
             c = getchar();
             if(c == '\n')
-                c = getchar();
-            while (c != '.'&& c != 'H' && c != 'X'){
-                if(c != '\n')
-                    printf("Erreur: Caractère '%c' inattendu, attendu '.', 'H' ou 'X'.\n",c);
+                c=getchar();
+            if(c!='.' && c != 'H' && c!='X'){
+                printf("Erreur: Caractère '%c' inattendu, attendu '.', 'H' ou 'X'.\n",c);
+                return false;
             }
             jeu[i][j] = c;
+             
         }
     }
-    //printf("\n");
+    return true;
+    
 }
-
-
+/*
+bool haveErr(){
+    int i;
+    int j;
+    char c;
+    bool in = initialisateMap();
+    for(i=0;i<LINES;i++){
+        for(j=0;j<COLUMN;j++){
+            if(jeu[i][j] != '.'&& jeu[i][j] != 'H' && jeu[i][j] != 'X'){
+                if(jeu[i][j] != '\n'){
+                    printf("Erreur: Caractère '%c' inattendu, attendu '.', 'H' ou 'X'.\n",c);
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+*/
 void printMap(){
     int i;
     int j;
