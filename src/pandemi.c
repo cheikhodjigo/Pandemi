@@ -3,12 +3,11 @@
 #include <stdlib.h>
 
 enum Dimension{
-    LINES = 2,COLUMN = 4
+    LINES = 20,COLUMN = 40
 };
 
 bool initialisateMap();//char jeu[LINES][COLUMN]);
 void printMap();
-//bool haveErr();
 void evolutionOfVirus();
 void emptyCell(char copie[LINES][COLUMN],int i,int j);
 void populatedCell(char copie[LINES][COLUMN],int i,int j);
@@ -25,9 +24,8 @@ int main(int argc, char * argv[]){
         if(haveNoErr){    
             printf("Jour 0\n");
             printMap();
-        
         }
-    }else if(argc == 2 && haveNoErr){
+    }else if(argc == 2){
         int argm = atoi(argv[1]);
         if(argm < 0 || argm > 100){
             printf("Erreur: Le nombre de jours à simuler doit être entre 0 et 100.\n");
@@ -57,10 +55,14 @@ bool initialisateMap(){
     for (i = 0; i < LINES;i++){
         for(j = 0;j<COLUMN;j++){
             c = getchar();
+            if(c == '\n' && j != 0){
+                printf("Erreur: Caractère `EOF` inattendu, attendu `H`, `X` ou `.`.\n");
+                return false;
+            }
             if(c == '\n')
                 c=getchar();
             if(c!='.' && c != 'H' && c!='X'){
-                printf("Erreur: Caractère '%c' inattendu, attendu '.', 'H' ou 'X'.\n",c);
+                printf("Erreur: Caractère `%c` inattendu, attendu `.`, `H` ou `X`.\n",c);
                 return false;
             }
             jeu[i][j] = c;
@@ -70,25 +72,7 @@ bool initialisateMap(){
     return true;
     
 }
-/*
-bool haveErr(){
-    int i;
-    int j;
-    char c;
-    bool in = initialisateMap();
-    for(i=0;i<LINES;i++){
-        for(j=0;j<COLUMN;j++){
-            if(jeu[i][j] != '.'&& jeu[i][j] != 'H' && jeu[i][j] != 'X'){
-                if(jeu[i][j] != '\n'){
-                    printf("Erreur: Caractère '%c' inattendu, attendu '.', 'H' ou 'X'.\n",c);
-                    return true;
-                }
-            }
-        }
-    }
-    return false;
-}
-*/
+
 void printMap(){
     int i;
     int j;
@@ -219,17 +203,6 @@ void populatedCell(char copie[LINES][COLUMN],int i,int j){
             }else if (copie[checkI][checkJ] == 'X'){
                 infected++;
             }
-            /*
-            if((infected+healthy) == 2 || (infected + healthy) == 3){
-                if(copie[i][j] == 'H'){
-                    if(infected > healthy)
-                        jeu[i][j] = 'X';                       
-                }
-                break;
-            }else if (a == 7 && ((infected+healthy)< 2 || (infected+healthy) > 3)){
-                jeu[i][j] = '.';
-            }*/
-
        }
     }
     if((infected+healthy) == 2 || (infected + healthy) == 3){
