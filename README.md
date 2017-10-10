@@ -2,9 +2,10 @@
 
 ## Description
 
-Décrivez ici le projet. Commencez d'abord par une description générale, puis
-donnez ensuite des détails. Indiquez le contexte dans lequel ce travail est
-accompli (cours, sigle, enseignant, université).
+Ce travail est un programme qui permet de montrer l'evolution d'un virus au sein d'une population.
+Il est effectue dans le cadre du tp1 du cours d'INF3135(Construction et maintenance de locigiel).
+Ce cours est donne au trimestre d'Automne 2017 par Alexandre Blondin Masse.Il est offert par 
+l'universite du Quebec a Montreal.
 
 ## Auteur
 
