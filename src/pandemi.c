@@ -15,7 +15,7 @@ char jeu[LINES][COLUMN];//The representation of the game
 
 int main(int argc, char * argv[]){
     int a;//Counter for the loop if argc == 2
-    bool haveNoErr = true;
+    bool haveNoErr = true;//variable that will check if there are errors in the map
     int argm;//The number of days the user entered
     if(argc > 2){
         printf("Erreur: Attendu un seul argument: le nombre de jours à simuler.");
@@ -30,7 +30,7 @@ int main(int argc, char * argv[]){
         if(argm < 0 || argm > 100){
             printf("Erreur: Le nombre de jours à simuler doit être entre 0 et 100.\n");
         }else{ 
-            haveNoErr=initialisateMap();
+            haveNoErr=initialisateMap();//checking if there are errors or no
             if(haveNoErr){
                 for(a = 0;a <= argm;a++){
                     fprintf(stdout,"Jour %d\n",a);
@@ -146,17 +146,17 @@ void emptyCell(char copie[LINES][COLUMN],int i,int j){
             }else if (copie[checkI][checkJ] == 'X'){
                 infected++;
             }
-            if((healthy+infected) == 3 || healthy == 3 || infected == 3){
-                if(healthy == 2 || healthy == 3){
-                    jeu[i][j]= 'H';               
-                }else if (infected == 2 || infected == 3){
-                    jeu[i][j] = 'X';     
-                }
-                break;
-            }
         }
-    
+        
     }
+    if((healthy+infected) == 3 || healthy == 3 || infected == 3){
+        if(healthy == 2 || healthy == 3){
+            jeu[i][j]= 'H';
+        }else if (infected == 2 || infected == 3){
+            jeu[i][j] = 'X';
+        }
+   }
+
        
 }
 
