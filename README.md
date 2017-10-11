@@ -81,7 +81,7 @@ H..XH.H...
 
 ## Références
 
-Indiquez ici les références que vous avez utilisé pour compléter le projet.
+Nous avons cloner le projet a partir de l'URL suivant: https://gitlab.com/Morriar/inf3135-aut2017-tp1.
 
 ## État du projet
 
