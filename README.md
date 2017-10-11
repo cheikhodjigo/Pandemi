@@ -88,16 +88,16 @@ Nous avons cloner le projet a partir de l'URL suivant: https://gitlab.com/Morria
 Indiquez toutes les tâches qui ont été complétés en insérant un `X` entre les
 crochets. Si une tâche n'a pas été complétée, expliquez pourquoi.
 
-* [ ] Le nom du dépôt GitLab est exactement `inf3135-aut2017-tp1` (Pénalité de
+* [X] Le nom du dépôt GitLab est exactement `inf3135-aut2017-tp1` (Pénalité de
   **50%**).
-* [ ] L'URL du dépôt GitLab est exactement (remplacer `utilisateur` par votre
+* [X] L'URL du dépôt GitLab est exactement (remplacer `utilisateur` par votre
   nom identifiant GitLab) `https://gitlab.com/utilisateur/inf3135-aut2017-tp1`
   (Pénalité de **50%**).
-* [ ] L'utilisateur `ablondin` (groupe 20) ou `Morriar` (groupe 40) a accès au
+* [X] L'utilisateur `ablondin` (groupe 20) ou `Morriar` (groupe 40) a accès au
   projet en mode *Developer* (Pénalité de **50%**).
-* [ ] Le dépôt GitLab est privé (Pénalité de **50%**).
-* [ ] Le fichier `.gitignore` a été mis à jour.
-* [ ] Le fichier `pandemi.c` a été implémenté.
-* [ ] La cible `bin/pandemic` a été ajoutée dans le Makefile.
-* [ ] Aucun test exécuté avec la commande `make check` n'échoue.
-* [ ] Les sections incomplètes du fichier `README.md` ont été complétées.
+* [X] Le dépôt GitLab est privé (Pénalité de **50%**).
+* [X] Le fichier `.gitignore` a été mis à jour.
+* [X] Le fichier `pandemi.c` a été implémenté.
+* [X] La cible `bin/pandemic` a été ajoutée dans le Makefile.
+* [X] Aucun test exécuté avec la commande `make check` n'échoue.
+* [X] Les sections incomplètes du fichier `README.md` ont été complétées.
