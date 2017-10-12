@@ -1,7 +1,16 @@
+/*
+* Here is the main class of the project. That programs is 
+* in charge of all the input and the output messages(including
+* errors messages). It will initialisate the map that the user have 
+* entered in stdin and show the evolution of the virus.  
+*
+*/
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
+//The dimensions of the matrix 
 enum Dimension{
     LINES = 20,COLUMN = 40
 };
@@ -13,6 +22,12 @@ void emptyCell(char copie[LINES][COLUMN],int i,int j);
 void populatedCell(char copie[LINES][COLUMN],int i,int j);
 char jeu[LINES][COLUMN];//The representation of the game
 
+/*
+ * The main methods with two arguments
+ * @params argc the number of arguments that the user entered
+ * @params argv the array of strings that contains each arguments
+ *
+ */
 int main(int argc, char * argv[]){
     int a;//Counter for the loop if argc == 2
     bool haveNoErr = true;//variable that will check if there are errors in the map
@@ -45,9 +60,12 @@ int main(int argc, char * argv[]){
 }
 
 /*
-*This method iniatialisate the matrix that represents the map
-*
-*/
+ * This method iniatialisate the matrix that represents the map. 
+ * The inialisation is based on the input that the user entered.
+ * It will show error messages depending on the cases(map too short,
+ * unexpected character entered)
+ * @return a boolean that specifie if there were an error or not 
+ */
 bool initialisateMap(){
     int i =0;
     int j =0;
@@ -76,6 +94,10 @@ bool initialisateMap(){
     
 }
 
+
+/*
+ * This method will print the map on stdout
+ */
 void printMap(){
     int i;
     int j;
@@ -87,6 +109,11 @@ void printMap(){
     } 
 }
 
+
+/*
+ * This method is the one that will changes the map
+ * day after day. 
+ */
 void evolutionOfVirus(){
     int i;
     int j;
@@ -108,6 +135,15 @@ void evolutionOfVirus(){
     }   
 }
 
+
+/*
+ * This method is called by the method evolutionOfVirus() if the cell
+ * that is being checked is a non-populated one.
+ * It will check the neighboor of the cell and modifie or not depending 
+ * on the conditions.
+ * @params copie it is a copie of the current map
+ * @params i,j the coordonates of the cell   
+ */
 void emptyCell(char copie[LINES][COLUMN],int i,int j){
     int a;
     int infected = 0;
@@ -163,6 +199,15 @@ void emptyCell(char copie[LINES][COLUMN],int i,int j){
        
 }
 
+
+/*
+ * This method is called by the method evolutionOfVirus() if the cell
+ * that is being checked is a non-populated one.
+ * It will check the neighboor of the cell and modifie or not depending 
+ * on the conditions.
+ * @params copie it is a copie of the current map
+ * @params i,j the coordonates of the cell   
+ */
 void populatedCell(char copie[LINES][COLUMN],int i,int j){
     int a;
     int neighboor = 0;
