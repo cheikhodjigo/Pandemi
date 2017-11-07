@@ -2,7 +2,7 @@
 FILENAME= bin/pandemic
 $(FILENAME): src/pandemi.o
 	mkdir -p bin
-	gcc -o $(FILENAME) src/pandemi.o
+	gcc -o $(FILENAME) src/pandemi.c
 src/pandemi.o: src/pandemi.c
 	gcc -c src/pandemi.c
 

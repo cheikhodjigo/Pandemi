@@ -2,9 +2,10 @@
 
 ## Description
 
-Ce travail est un programme qui permet de montrer l'evolution d'un virus au sein d'une population.
-Il est effectue dans le cadre du tp1 du cours d'INF3135(Construction et maintenance de locigiel).
-Ce cours est donne au trimestre d'Automne 2017 par Alexandre Blondin Masse.Il est offert par 
+Ce travail est un programme qui permet de montrer l'evolution d'un virus au
+sein d'une population.  Il est effectue dans le cadre du tp1 du cours
+d'INF3135(Construction et maintenance de locigiel).  Ce cours est donne au
+trimestre d'Automne 2017 par Alexandre Blondin Masse.Il est offert par
 l'universite du Quebec a Montreal.
 
 ## Auteur
@@ -14,17 +15,17 @@ Nom: DJIGO
 
 ## Fonctionnement
 
-Pour executer le programme on devra tout d'abord entrer la commande 'make' au 
-terminal. Cette commande servira a compiler le programme. On pourra ensuite 
-rentrer la commande 'bin/pandemic'.Cela aura pour effet de lancer le programme.
-Cette commande peut aussi etre suivi du nombre de jours a simuler(il doit etre
-compris entre 0 et 100). C'est le seul argument qui sera accepter. Ceci fait,
-vous devez entrer sur stdin la carte de la population. Cette carte doit etre
-composer de 40 * 20 caractere. Ces caracteres peuvent entrer de facon continue
-ou de facon discontinue. La maniere discontinue exige que l'on rentre 40 
-caracteres sur 20 differentes lignes. Les seules caracteres admis sont les suivants:
-'.', 'H' et 'X'. Tout autre caracteres entres generera une erreur. Une carte trop 
-courte generera aussi une erreur. 
+Pour executer le programme on devra tout d'abord entrer la commande `make` au
+terminal. Cette commande servira a compiler le programme. On pourra ensuite
+rentrer la commande `bin/pandemic`. Cela aura pour effet de lancer le
+programme.  Cette commande peut aussi être suivie du nombre de jours à
+simuler (il doit etre compris entre 0 et 100). C'est le seul argument qui sera
+accepté. Ceci fait, vous devez entrer sur stdin la carte de la population.
+Cette carte doit être composer de 40 * 20 caractere. Ces caracteres peuvent
+entrer de facon continue ou de facon discontinue. La maniere discontinue exige
+que l'on rentre 40 caracteres sur 20 differentes lignes. Les seules caracteres
+admis sont les suivants: '.', 'H' et 'X'. Tout autre caracteres entres generera
+une erreur. Une carte trop courte generera aussi une erreur. 
     
 ## Tests
 
